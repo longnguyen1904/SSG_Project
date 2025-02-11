@@ -2060,16 +2060,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 0, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 43
-      m_TileSpriteIndex: 7
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 1, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -5098,7 +5088,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 8010ef7f1d299ff4785a94637800dde3, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: ea2078147a67368479c38f9c8892f624, type: 2}
-  - m_RefCount: 24
+  - m_RefCount: 23
     m_Data: {fileID: 11400000, guid: 931fa0f0ac587b8489815e0480859906, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 92fceb8c12d19b342bb2e93d84d7da4d, type: 2}
@@ -5211,7 +5201,7 @@ Tilemap:
     m_Data: {fileID: -1466242924, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 148148559, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
-  - m_RefCount: 24
+  - m_RefCount: 23
     m_Data: {fileID: 695398422, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
   - m_RefCount: 12
     m_Data: {fileID: 1345596267, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
@@ -5382,7 +5372,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: -815082049, guid: e09a4527e4f1271488fac58fca49fd4b, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 424
+  - m_RefCount: 423
     m_Data:
       e00: 1
       e01: 0
@@ -5401,13 +5391,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 424
+  - m_RefCount: 423
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -2, y: -5, z: 0}
-  m_Size: {x: 38, y: 16, z: 1}
+  m_Size: {x: 106, y: 32, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
