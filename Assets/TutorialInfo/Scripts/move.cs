@@ -7,11 +7,10 @@ using DG.Tweening;
 public class move : MonoBehaviour
 {
 
-    float movespeed = 2f; 
+    float movespeed = 4f; 
     Animator animator;
-
-    public Vector3 moveinput;  
-    
+    float Directionx = Input.GetAxisRaw("Horizontal");
+    float Directiony = Input.GetAxisRaw("Vertical");
     // Start is called before the first frame update
     void Start()
     {
@@ -24,27 +23,19 @@ public class move : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        moveinput.x = Input.GetAxis("Horizontal");
-        moveinput.y = Input.GetAxis("Vertical");
-        transform.position += moveinput * movespeed * Time.deltaTime;
+    {    if (Directionx != null || Directiony != null)
+        {
+            animator.SetFloat("speed", 4);
 
-        if (moveinput.x != 0 || moveinput.y != 0) {
+            float movestepX = Directionx * movespeed * Time.deltaTime;
+            float movestepY = Directiony * movespeed * Time.deltaTime;
+            transform.Translate(movestepX, movestepY, 0);
+        }
+        else  {
+            animator.SetFloat("speed", 0); 
             
-            animator.SetBool("run", true);
+        
         }
-        else {
-            animator.SetBool("run", false); }
-
-
-
-        if (moveinput.x > 0) // Đi sang phải
-        {
-            transform.localScale = new Vector3(3, 3, 3);
-        }
-        else if (moveinput.x < 0) // Đi sang trái
-        {
-            transform.localScale = new Vector3(-3, 3, 3);
-        }
+        
     }
 }
