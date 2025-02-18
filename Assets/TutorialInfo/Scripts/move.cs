@@ -40,11 +40,11 @@ public class move : MonoBehaviour
 
         if (moveinput.x > 0) // Đi sang phải
         {
-            transform.localScale = new Vector3(3, 3, 3);
+            transform.localScale = new Vector3(4, 4, 4);
         }
         else if (moveinput.x < 0) // Đi sang trái
         {
-            transform.localScale = new Vector3(-3, 3, 3);
+            transform.localScale = new Vector3(-4, 4, 4);
         }
     }
 }
