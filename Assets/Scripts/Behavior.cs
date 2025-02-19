@@ -27,12 +27,7 @@ public class Behavior : MonoBehaviour {
         // Xác định hướng di chuyển dựa trên góc quay hiện tại
         Vector2 moveDirection = transform.right;
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-            currentRotation += rotationSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-            currentRotation -= rotationSpeed * Time.deltaTime;
-        }
+        
 
         // if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
         //     transform.position += (Vector3)(moveDirection * movement.speed * Time.deltaTime);
@@ -57,6 +52,12 @@ public class Behavior : MonoBehaviour {
         if (movement.speed > 0) {
             moveDirection = transform.right; // Hướng mũi xe
             transform.position += (Vector3)(moveDirection * movement.speed * Time.deltaTime);
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+                currentRotation += rotationSpeed * Time.deltaTime;
+            }
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+                currentRotation -= rotationSpeed * Time.deltaTime;
+            }
         }
 
         Debug.Log($"Speed: {movement.speed}");
