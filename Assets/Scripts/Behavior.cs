@@ -34,12 +34,12 @@ public class Behavior : MonoBehaviour {
             currentRotation -= rotationSpeed * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-            transform.position += (Vector3)(moveDirection * movement.speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-            transform.position -= (Vector3)(moveDirection * movement.speed * Time.deltaTime);
-        }
+        // if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+        //     transform.position += (Vector3)(moveDirection * movement.speed * Time.deltaTime);
+        // }
+        // if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+        //     transform.position -= (Vector3)(moveDirection * movement.speed * Time.deltaTime);
+        // }
 
         // Update tốc theo deltaTime
         if (Input.GetKey(KeyCode.Space)) {
