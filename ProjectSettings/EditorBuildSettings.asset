@@ -6,6 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Gutty Kreum/Free Japanese City Game Assets/Demo/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 4fec282e7cc2b7f49a9ebfd1975cb39e
+  - enabled: 1
+    path: Assets/Scenes/LV1.unity
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/Setting.unity
+    guid: 04c20a9b64cb7ab419694b4d6f29fcb4
+  m_configObjects:
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: ccf07df91f158f34caebf8f625a782a0, type: 2}
