@@ -17,6 +17,10 @@ public class MainMenu : MonoBehaviour
     public void ChangScene(string ScenceName) {
         SceneManager.LoadScene("LV1");  
     }
+
+    public void Tomainmenu(string name) {
+        SceneManager.LoadScene("Setting"); 
+    }
     public void OnApplicationQuit()
     {
         Application.Quit();
