@@ -4,42 +4,44 @@ using UnityEngine.EventSystems;
 public class Joystick_handle : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
     public RectTransform joystickBackground;  // Nền joystick
-    private RectTransform joystickHandle;    // Nút joystick
+    public RectTransform joystickHandle;      // Nút joystick
     private Vector2 inputVector = Vector2.zero; // Vector điều hướng
-    private Vector2 startPosition;           // Vị trí gốc của joystick
+    private Vector2 startPosition;             // Vị trí trung tâm của joystick
 
-    public float moveRange = 2f; // Giới hạn joystick di chuyển
+    private float moveRange; // Giới hạn joystick di chuyển (bán kính của background)
 
     private void Start()
     {
-        joystickHandle = GetComponent<RectTransform>();
-        startPosition = joystickHandle.anchoredPosition;
+        startPosition = joystickBackground.localPosition; // Lấy vị trí trung tâm của joystickBackground
+        moveRange = joystickBackground.sizeDelta.x / 2f; // Lấy bán kính của background
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        OnDrag(eventData); // Kéo ngay khi chạm vào
+        OnDrag(eventData); // Gọi OnDrag ngay khi chạm vào
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 position;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(joystickBackground, eventData.position, eventData.pressEventCamera, out position);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(joystickBackground.parent as RectTransform, eventData.position, eventData.pressEventCamera, out position);
 
-        Vector2 offset = position - (Vector2)joystickBackground.anchoredPosition;
+        Vector2 offset = position - startPosition; // Khoảng cách từ joystick đến trung tâm
         float distance = offset.magnitude;
 
-        if (distance > moveRange)
+        if (distance > moveRange)  // Nếu joystickHandle ra ngoài background, giới hạn lại
+        {
             offset = offset.normalized * moveRange;
+        }
 
-        inputVector = offset / moveRange;
-        joystickHandle.anchoredPosition = (Vector2)joystickBackground.anchoredPosition + offset;
+        inputVector = offset / moveRange; // Chuẩn hóa giá trị (-1 đến 1)
+        joystickHandle.localPosition = offset; // Đặt vị trí joystickHandle bên trong background
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         inputVector = Vector2.zero;
-        joystickHandle.anchoredPosition = startPosition; // Reset vị trí
+        joystickHandle.localPosition = Vector2.zero; // Reset joystick về trung tâm
     }
 
     public Vector2 GetDirection()
