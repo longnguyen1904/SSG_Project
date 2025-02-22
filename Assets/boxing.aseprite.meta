@@ -8,7 +8,6 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
-  importerVersion: 1
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -133,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 80
       height: 153
-    spriteID: 3733c04278ccd2b45839c2d8ca97094a
+    spriteID: 90873b2ed4d1b134991558ad82fc9651
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,7 +144,7 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 722501253
+    guid: -929811391
     name: boxing
     layerFlags: 0
     layerType: 0
@@ -159,7 +158,7 @@ ScriptedImporter:
         y: 2
         width: 80
         height: 153
-      spriteId: 3733c04278ccd2b45839c2d8ca97094a
+      spriteId: 90873b2ed4d1b134991558ad82fc9651
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -179,4 +178,3 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 86, y: 155}
-  previousTextureSize: {x: 128, y: 256}
