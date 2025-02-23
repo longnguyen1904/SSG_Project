@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Iđelmove : MonoBehaviour
+public class Idelmove : MonoBehaviour
 {
-    public Joystick_handle joystick;
+    public Joystick_handle joystick  ;
     public Animator animator;  
 
     public float moveSpeed;      // Tốc độ di chuyển
