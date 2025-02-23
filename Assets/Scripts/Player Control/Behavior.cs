@@ -2,10 +2,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Movement))]
 public class Behavior : MonoBehaviour {
-    // private Vector2 lastDirection = Vector2.zero;
-    // private Vector2 savedDirection = Vector2.zero;
-    // private float changeDirectionCooldown = 0.1f;
-    // private float timeSinceLastChange = 0f;
     public Movement movement { get; private set;}
     private float rotationSpeed = 200f; // Tốc độ xoay xe
     private float currentRotation = 0f; // Góc quay của xe
@@ -77,11 +73,5 @@ public class Behavior : MonoBehaviour {
         
 
         
-    }
-
-    public void ResetState()
-    {
-        this.movement.ResetState();
-        this.gameObject.SetActive(true);
     }
 }
