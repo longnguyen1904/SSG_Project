@@ -9,10 +9,20 @@ public class Behavior : MonoBehaviour {
     private float MINSPEED = 0f;
     private float decelerationRate = 5f;
     private float accelerationRate = 6f;
-    public bool gear = true;
 
-    private void Awake()
-    {
+    // gear true: số tiến, gear false: số lùi
+    public bool gear = true;
+    
+    /*
+    force: Phát hiện va chạm
+    force true: khi va chạm, force false: khi không va chạm
+    */ 
+    public bool force = false;
+
+    // check false: Chỉ được lùi, check true: Chỉ được tiến
+    public bool check = true;
+
+    private void Awake() {
         this.movement = GetComponent<Movement>();
 
         Debug.Log(movement == null ? "Movement is null" : "Movement is assigned");
@@ -24,16 +34,7 @@ public class Behavior : MonoBehaviour {
         Vector2 moveDirection = transform.right;
         // Set gear
         if (movement.speed == 0) {
-            if (Input.GetKey(KeyCode.J) && !gear) {
-                // Gear tiến
-                gear = true;
-                MAXSPEED = 30f;
-            }
-            if (Input.GetKey(KeyCode.K) && gear) {
-                // Gear lùi
-                gear = false;
-                MAXSPEED = 5f;
-            }            
+            setGear();     
         }
         // Update tốc theo deltaTime
         if (Input.GetKey(KeyCode.Space)) {
@@ -50,12 +51,8 @@ public class Behavior : MonoBehaviour {
 
         if (movement.speed > 0) {
             moveDirection = transform.right; // Hướng mũi xe
-            // Gear
-            if (gear) {
-                transform.position += (Vector3)(moveDirection * movement.speed * Time.deltaTime);
-            } else {
-                transform.position -= (Vector3)(moveDirection * movement.speed * Time.deltaTime);
-            }
+
+            collisionHandler(moveDirection);
 
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
                 currentRotation += rotationSpeed * Time.deltaTime;
@@ -70,8 +67,60 @@ public class Behavior : MonoBehaviour {
         // Cập nhật góc quay
         transform.rotation = Quaternion.Euler(0, 0, currentRotation);
 
-        
+    }
 
-        
+    public void collisionHandler(Vector2 moveDirection) {
+        // Gear
+        if (!force) {
+            if (gear) {
+                moveForwad(moveDirection);
+            } else {
+                movebackWard(moveDirection);
+            }
+        } else {
+            setGear();
+            if (gear && check) {
+                moveForwad(moveDirection);
+            }
+            if (!(gear && check)) {
+                movebackWard(moveDirection);
+            }
+        }
+    }
+
+    public void moveForwad(Vector2 moveDirection) {
+        transform.position += (Vector3)(moveDirection * movement.speed * Time.deltaTime);
+    }
+
+    public void movebackWard(Vector2 moveDirection) {
+        transform.position -= (Vector3)(moveDirection * movement.speed * Time.deltaTime);
+    }
+
+    public void OnCollisionEnter2D() {
+        movement.speed = 0;
+        if (gear) {
+            this.check = false;
+            this.force = true;
+        } else {
+            this.check = true;
+            this.force = true;
+        }
+    }
+
+    public void setGear() {
+        // Gear tiến
+        if (Input.GetKey(KeyCode.J) && !gear) {
+            gear = true;
+            MAXSPEED = 30f;
+        }
+        // Gear lùi
+        if (Input.GetKey(KeyCode.K) && gear) {
+            gear = false;
+            MAXSPEED = 5f;
+        }       
+    }
+
+    public void OnCollisionExit2D() {
+        this.force = false;
     }
 }
