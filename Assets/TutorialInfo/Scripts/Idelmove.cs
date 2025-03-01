@@ -44,4 +44,24 @@ public class Idelmove : MonoBehaviour
 
 
     }
+
+    void OnEnable()
+    {
+        // Khi nhân vật được kích hoạt (SetActive(true)), báo với Timer
+        Trafficnumber timer = FindObjectOfType<Trafficnumber>();
+        if (timer != null)
+        {
+            timer.CharacterActivated();
+        }
+    }
+    void OnDisable()
+    {
+        // Khi nhân vật bị vô hiệu hóa (SetActive(false)), báo với Timer
+        Trafficnumber timer = FindObjectOfType<Trafficnumber>();
+        if (timer != null)
+        {
+            timer.CharacterDeactivated();
+        }
+    }
+
 }
