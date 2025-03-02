@@ -1,7 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;   
+using UnityEngine.SceneManagement;
 
 
 public class MainMenu : MonoBehaviour
@@ -11,12 +11,26 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
-    
+
     public void ChangScene(string ScenceName) {
-        SceneManager.LoadScene("LV1");  
+        SceneManager.LoadScene("LV1");
     }
+
+    public void ToSetting(string name) {
+        SceneManager.LoadScene("Setting");
+    }
+
+    public void Tomainmenu(string name){
+        SceneManager.LoadScene("Main"); 
+    }
+
+    public void Toturtorial(string name) {
+        SceneManager.LoadScene("Turtorial");  
+    }
+
+
     public void OnApplicationQuit()
     {
         Application.Quit();
