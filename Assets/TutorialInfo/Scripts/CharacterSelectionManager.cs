@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;  
+  
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -16,14 +16,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Start()
     {
-        // Ẩn tất cả nhân vật khi bắt đầu game
-        // foreach (GameObject character in characters)
-        //{
-        //  character.SetActive(false);
-        //}
-
-        // Hiện UI chọn nhân vật
-        //characterSelectionUI.SetActive(true);
+       
         if (characterSelectionUI == null)
         {
             Debug.LogError("⚠️ Lỗi: Chưa gán Canvas vào characterSelectionUI!");
