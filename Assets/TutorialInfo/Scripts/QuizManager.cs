@@ -1,135 +1,107 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
+using System.Collections;
 
 public class QuizManager : MonoBehaviour
 {
-    public Button buttonA;
-    public Button buttonB;
-    public Button buttonC;
-    public Button buttonD;
 
-    public TextMeshProUGUI scoreText;
+
+    /*
+    public static QuizManager instance;
+
+    public TextMeshProUGUI coinText;
     public TextMeshProUGUI timerText;
 
-    // Tham chiếu đến 3 nhân vật trong Hierarchy
-    public GameObject character1;
-    public GameObject character2;
-    public GameObject character3;
-
-    private int score = 0;
-    private float timeRemaining = 120f; // 2 phút
+    private int coins = 0;
+    private float timeRemaining = 120f;
     private bool isTimerRunning = false;
-    private bool hasStartedCountdown = false; // Kiểm tra xem đã bắt đầu đếm ngược chưa
 
-    private QuestionMask currentQuestion;
-    private string correctAnswer = "A";
+    public int[] coinCheckpoints; // Mốc coin để mở canvas
+    public GameObject[] quizCanvases; // Danh sách các canvas câu hỏi
 
-    void Start()
+    void Awake()
     {
-        buttonA.onClick.AddListener(() => CheckAnswer("A"));
-        buttonB.onClick.AddListener(() => CheckAnswer("B"));
-        buttonC.onClick.AddListener(() => CheckAnswer("C"));
-        buttonD.onClick.AddListener(() => CheckAnswer("D"));
-
-        UpdateScoreText();
-        UpdateTimerText();
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     void Update()
     {
-        // Kiểm tra nếu ít nhất 1 nhân vật đã spawn và chưa bắt đầu đếm ngược
-        if (!hasStartedCountdown && CheckCharactersSpawned())
-        {
-            StartCountdown();
-        }
-
         if (isTimerRunning)
         {
             timeRemaining -= Time.deltaTime;
-            UpdateTimerText();
+            UpdateTimerUI();
 
             if (timeRemaining <= 0)
             {
                 isTimerRunning = false;
-                CheckGameOver();
+                Debug.Log("⏳ Hết thời gian!");
+            }
+        }
+
+        // Kiểm tra coin để mở canvas
+        for (int i = 0; i < coinCheckpoints.Length; i++)
+        {
+            if (coins == coinCheckpoints[i] && !quizCanvases[i].activeSelf)
+            {
+                quizCanvases[i].SetActive(true);
+                Debug.Log("📌 Mở câu hỏi!");
             }
         }
     }
 
-    public void StartQuiz(QuestionMask question)
+    public void StartTimer()
     {
-        currentQuestion = question;
-        SetButtonsInteractable(true);
-        // Đếm ngược sẽ bắt đầu khi nhân vật spawn, không phải ở đây
+        if (!isTimerRunning)
+        {
+            isTimerRunning = true;
+            Debug.Log("⏳ Bắt đầu đếm ngược!");
+        }
     }
 
-    void CheckAnswer(string selectedAnswer)
+    public void AddCoin(int amount)
     {
-        if (selectedAnswer == correctAnswer)
+        coins += amount;
+        UpdateCoinUI();
+        Debug.Log("💰 Coin hiện tại: " + coins);
+    }
+
+    public void RemoveCoin(int amount)
+    {
+        if (coins >= amount)
         {
-            score += 10;
-            UpdateScoreText();
-
-            currentQuestion.quizCanvas.gameObject.SetActive(false);
-            currentQuestion.HideQuestion();
-            isTimerRunning = false; // Dừng đếm ngược khi trả lời đúng
-
-            Debug.Log("Đáp án đúng!");
+            coins -= amount;
+            UpdateCoinUI();
+            Debug.Log("❌ Mất " + amount + " coin. Còn lại: " + coins);
         }
         else
         {
-            Debug.Log("Đáp án sai!");
+            Debug.LogWarning("⚠️ Không đủ coin để trừ!");
         }
-
-        SetButtonsInteractable(false);
     }
 
-    bool CheckCharactersSpawned()
+    private void UpdateCoinUI()
     {
-        // Kiểm tra xem ít nhất 1 trong 3 nhân vật có active trong Hierarchy không
-        return (character1 != null && character1.activeInHierarchy) ||
-               (character2 != null && character2.activeInHierarchy) ||
-               (character3 != null && character3.activeInHierarchy);
+        if (coinText != null)
+            coinText.text = "Coins: " + coins;
     }
 
-    void StartCountdown()
+    private void UpdateTimerUI()
     {
-        hasStartedCountdown = true;
-        timeRemaining = 120f; // Reset thời gian về 2 phút
-        isTimerRunning = true;
-        Debug.Log("Bắt đầu đếm ngược!");
-    }
-
-    void UpdateScoreText()
-    {
-        scoreText.text =  score.ToString();
-    }
-
-    void UpdateTimerText()
-    {
-        int minutes = Mathf.FloorToInt(timeRemaining / 60);
-        int seconds = Mathf.FloorToInt(timeRemaining % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    }
-
-    void SetButtonsInteractable(bool state)
-    {
-        buttonA.interactable = state;
-        buttonB.interactable = state;
-        buttonC.interactable = state;
-        buttonD.interactable = state;
-    }
-
-    void CheckGameOver()
-    {
-        if (score < 10)
+        if (timerText != null)
         {
-            SceneManager.LoadScene("GameOver");
+            int minutes = Mathf.FloorToInt(timeRemaining / 60);
+            int seconds = Mathf.FloorToInt(timeRemaining % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
-    }
+    }   */
 }
