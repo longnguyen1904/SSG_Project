@@ -19,9 +19,12 @@ EditorBuildSettings:
     guid: 3b782a9eb741bc449b48d8a95792367b
   - enabled: 1
     path: Assets/Scenes/gameover.unity
-    guid: 062c030679ecca84fb26bd658e1e03a5
+    guid: 1bd431d0d2a3a56489b03080c55fc491
   - enabled: 1
-    path: Assets/Scenes/lv2.unity
-    guid: e7d392be683d37642acf09dd697538d9
+    path: Assets/Scenes/Winlv1.unity
+    guid: c88dce975b212c241be72e79a0bddf77
+  - enabled: 1
+    path: Assets/Scenes/LV2.unity
+    guid: 47d9f54b73a15ca4fbad175db5d64dfb
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: ccf07df91f158f34caebf8f625a782a0, type: 2}

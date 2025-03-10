@@ -14,10 +14,8 @@ public class ScoreManagement : MonoBehaviour
     private int coins = 0;
     private float timeRemaining = 120f;
     private bool isTimerRunning = false;
-
     public int[] coinCheckpoints; // Mốc coin để mở canvas
     public GameObject[] quizCanvases; // Danh sách canvas câu hỏi
-
     public GameObject character1, character2, character3; // Nhân vật
 
     private int lastCheckpointIndex = -1;
@@ -55,9 +53,9 @@ public class ScoreManagement : MonoBehaviour
                 Debug.Log("⏳ Hết thời gian!");
                 if (coins >= requiredCoinsToWin) // requiredCoinsToWin là mốc coin public
                 {
-                    SceneManager.LoadScene("lv2"); // Load Level 2 nếu đủ coin
+                    SceneManager.LoadScene("Winlv1"); // Load Level 2 nếu đủ coin
                 }
-                else
+                else   
                 {
                     SceneManager.LoadScene("gameover"); // Load Game Over nếu thua
                 }
@@ -80,7 +78,6 @@ public class ScoreManagement : MonoBehaviour
                 SceneManager.LoadScene("gameover"); // Load Game Over nếu thua
             }
         }*/
-
 
         // Mở canvas khi đạt mốc coin
         for (int i = 0; i < coinCheckpoints.Length; i++)
@@ -129,7 +126,6 @@ public class ScoreManagement : MonoBehaviour
             Debug.LogWarning("⚠️ Không đủ coin để trừ!");
         }
     }
-
     private void ActivateCanvas(int index)
     {
         if (index < quizCanvases.Length && quizCanvases[index] != null)
@@ -142,7 +138,7 @@ public class ScoreManagement : MonoBehaviour
     private void UpdateCoinUI()
     {
         if (coinText != null)
-            coinText.text = "Coins: " + coins;
+            coinText.text = "" + coins;
     }
 
     private void UpdateTimerUI()
