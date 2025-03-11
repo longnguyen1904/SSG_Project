@@ -10,6 +10,7 @@ public class Traffic_number_setting : MonoBehaviour
     public float redDuration = 5f, yellowDuration = 2f, greenDuration = 3f;
 
     public bool isGreenLight = false; // Kiểm tra đèn xanh
+    public bool isRedLight = false; // Kiểm tra đèn đỏ
 
     private bool isTrafficRunning = false;
 
@@ -35,19 +36,20 @@ public class Traffic_number_setting : MonoBehaviour
     {
         while (true)
         {
-            yield return StartCoroutine(RunTrafficLight(redText, redDuration, false));
-            yield return StartCoroutine(RunTrafficLight(yellowText, yellowDuration, false));
-            yield return StartCoroutine(RunTrafficLight(greenText, greenDuration, true));
+            yield return StartCoroutine(RunTrafficLight(redText, redDuration, false, true));  // Đèn đỏ
+            yield return StartCoroutine(RunTrafficLight(yellowText, yellowDuration, true, false)); // Đèn vàng (giống đèn xanh)
+            yield return StartCoroutine(RunTrafficLight(greenText, greenDuration, true, false));  // Đèn xanh
         }
     }
 
-    IEnumerator RunTrafficLight(TMP_Text lightText, float duration, bool greenState)
+    IEnumerator RunTrafficLight(TMP_Text lightText, float duration, bool greenState, bool redState)
     {
         redText.gameObject.SetActive(lightText == redText);
         yellowText.gameObject.SetActive(lightText == yellowText);
         greenText.gameObject.SetActive(lightText == greenText);
 
         isGreenLight = greenState; // Cập nhật trạng thái đèn xanh
+        isRedLight = redState;     // Cập nhật trạng thái đèn đỏ
 
         float timer = duration;
         while (timer > 0)
@@ -56,10 +58,5 @@ public class Traffic_number_setting : MonoBehaviour
             yield return new WaitForSeconds(1f);
             timer--;
         }
-    }
-
-    public bool IsGreenLight() // 📌 Thêm phương thức này để kiểm tra trạng thái đèn
-    {
-        return isGreenLight;
     }
 }
