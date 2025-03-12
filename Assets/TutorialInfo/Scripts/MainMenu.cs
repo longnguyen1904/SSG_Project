@@ -32,7 +32,9 @@ public class MainMenu : MonoBehaviour
     public void Toturtorial(string name) {
         SceneManager.LoadScene("Turtorial");  
     }
-
+    public void ToTutorial(string name) {
+        SceneManager.LoadScene("tutorial1");  
+    }
 
     public void OnApplicationQuit()
     {
