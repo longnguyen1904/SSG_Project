@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("LV2");
     }
     public void ChangScene(string ScenceName) {
-        SceneManager.LoadScene("LV1");
+        SceneManager.LoadScene("LV2");
     }
 
     public void ToSetting(string name) {
