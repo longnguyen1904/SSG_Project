@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("LV2");
     }
     public void ChangScene(string ScenceName) {
-        SceneManager.LoadScene("LV2");
+        SceneManager.LoadScene("LV1");
     }
 
     public void ToSetting(string name) {
@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour
     public void Toturtorial(string name) {
         SceneManager.LoadScene("Turtorial");  
     }
-    public void ToTutorial(string name) {
+    public void ToTutorial1(string name) {
         SceneManager.LoadScene("tutorial1");  
     }
 
