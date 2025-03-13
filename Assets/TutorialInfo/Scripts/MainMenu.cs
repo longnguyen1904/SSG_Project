@@ -32,13 +32,9 @@ public class MainMenu : MonoBehaviour
     public void Toturtorial(string name) {
         SceneManager.LoadScene("Turtorial");  
     }
-<<<<<<< HEAD
     public void ToTutorial1(string name) {
         SceneManager.LoadScene("tutorial1");  
     }
-=======
-
->>>>>>> parent of 5996489 (Merge branch 'Long_not_main' into LOngg)
 
     public void OnApplicationQuit()
     {
