@@ -19,6 +19,7 @@ public class ScoreManagement : MonoBehaviour
     public GameObject character1, character2, character3; // Nhân vật
 
     private int lastCheckpointIndex = -1;
+    public string Sence;  
 
     void Awake()
     {
@@ -65,7 +66,7 @@ public class ScoreManagement : MonoBehaviour
 
                 if (coins >= requiredCoinsToWin)
                 {
-                    SceneManager.LoadScene("Winlv3"); // Load Level 2 nếu đủ coin
+                    SceneManager.LoadScene(Sence); // Load Level 2 nếu đủ coin
                 }
                 else
                 {
