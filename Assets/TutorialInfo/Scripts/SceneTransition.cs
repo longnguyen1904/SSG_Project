@@ -37,5 +37,7 @@ public class SceneTransition : MonoBehaviour
             yield return null;
         }
         SceneManager.LoadScene(sceneName);
+        fadeCanvas.gameObject.SetActive(false);
+
     }
 }
