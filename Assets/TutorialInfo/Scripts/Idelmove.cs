@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class Idelmove : MonoBehaviour
 {
-    public Joystick_handle joystick  ;
-    public Animator animator;  
-
+    public Animator animator;
     public float moveSpeed;      // Tốc độ di chuyển
 
     private Rigidbody2D rb;
@@ -22,9 +20,10 @@ public class Idelmove : MonoBehaviour
 
     void Update()
     {
-        Vector2 direction = joystick.GetDirection();
+        Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        direction = direction.normalized;
 
-        if (direction.magnitude > 0.1f) // Nếu có input từ joystick
+        if (direction.magnitude > 0.1f) // Nếu có input từ bàn phím
         {
             animator.SetBool("run", true);
             rb.velocity = direction * moveSpeed;
@@ -37,12 +36,8 @@ public class Idelmove : MonoBehaviour
         else
         {
             animator.SetBool("run", false);
-            rb.velocity = Vector2.zero; // Dừng lại khi không kéo joystick
+            rb.velocity = Vector2.zero; // Dừng lại khi không có input
         }
-
-
-
-
     }
 
     void OnEnable()
@@ -54,6 +49,7 @@ public class Idelmove : MonoBehaviour
             timer.CharacterActivated();
         }
     }
+
     void OnDisable()
     {
         // Khi nhân vật bị vô hiệu hóa (SetActive(false)), báo với Timer
@@ -63,5 +59,4 @@ public class Idelmove : MonoBehaviour
             timer.CharacterDeactivated();
         }
     }
-
 }

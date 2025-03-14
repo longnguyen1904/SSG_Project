@@ -1,47 +1,17 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class Joystick_handle  : MonoBehaviour , IDragHandler, IPointerUpHandler, IPointerDownHandler 
+public class KeyboardController : MonoBehaviour
 {
-    public RectTransform joystickBackground;  // Nền joystick
-    public RectTransform joystickHandle;      // Nút joystick
-    private Vector2 inputVector = Vector2.zero; // Vector điều hướng
-    private Vector2 startPosition;             // Vị trí trung tâm của joystick
+    public float speed = 5f; // Tốc độ di chuyển
+    private Vector2 inputVector = Vector2.zero;
 
-    private float moveRange; // Giới hạn joystick di chuyển (bán kính của background)
-
-    private void Start()
+    void Update()
     {
-        startPosition = joystickBackground.localPosition; // Lấy vị trí trung tâm của joystickBackground
-        moveRange = joystickBackground.sizeDelta.x / 2f; // Lấy bán kính của background
-    }
+        // Lấy giá trị đầu vào từ bàn phím
+        inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        OnDrag(eventData); // Gọi OnDrag ngay khi chạm vào
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        Vector2 position;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(joystickBackground.parent as RectTransform, eventData.position, eventData.pressEventCamera, out position);
-
-        Vector2 offset = position - startPosition; // Khoảng cách từ joystick đến trung tâm
-        float distance = offset.magnitude;
-
-        if (distance > moveRange)  // Nếu joystickHandle ra ngoài background, giới hạn lại
-        {
-            offset = offset.normalized * moveRange;
-        }
-
-        inputVector = offset / moveRange; // Chuẩn hóa giá trị (-1 đến 1)
-        joystickHandle.localPosition = offset; // Đặt vị trí joystickHandle bên trong background
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        inputVector = Vector2.zero;
-        joystickHandle.localPosition = Vector2.zero; // Reset joystick về trung tâm
+        // Giới hạn độ dài vector trong khoảng (-1,1) để tránh tăng tốc độ khi di chuyển chéo
+        inputVector = inputVector.normalized;
     }
 
     public Vector2 GetDirection()
