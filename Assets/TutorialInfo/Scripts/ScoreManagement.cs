@@ -11,7 +11,7 @@ public class ScoreManagement : MonoBehaviour
     public TextMeshProUGUI timerText;
 
     private int coins = 0;
-    private float timeRemaining = 120f;
+    public float timeRemaining; 
     private bool isTimerRunning = false;
 
     public int[] coinCheckpoints; // Mốc coin để mở canvas
@@ -19,6 +19,7 @@ public class ScoreManagement : MonoBehaviour
     public GameObject character1, character2, character3; // Nhân vật
 
     private int lastCheckpointIndex = -1;
+    public string Sence;  
 
     void Awake()
     {
@@ -37,7 +38,7 @@ public class ScoreManagement : MonoBehaviour
     void Start()
     {
         // Reset thời gian khi scene mới bắt đầu
-        timeRemaining = 120f;
+       // timeRemaining = 240f;
         isTimerRunning = false;
 
         // Cập nhật UI ngay khi scene load
@@ -65,7 +66,7 @@ public class ScoreManagement : MonoBehaviour
 
                 if (coins >= requiredCoinsToWin)
                 {
-                    SceneManager.LoadScene("Winlv1"); // Load Level 2 nếu đủ coin
+                    SceneManager.LoadScene(Sence); // Load Level 2 nếu đủ coin
                 }
                 else
                 {
