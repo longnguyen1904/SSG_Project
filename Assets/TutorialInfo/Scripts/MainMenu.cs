@@ -16,21 +16,26 @@ public class MainMenu : MonoBehaviour
     public void toLV2(string ScenceName)
     {
         SceneManager.LoadScene("LV2");
+
     }
-    public void ChangScene(string ScenceName) {
+    public void ChangScene(string ScenceName)
+    {
         SceneManager.LoadScene("LV1");
     }
 
-    public void ToSetting(string name) {
+    public void ToSetting(string name)
+    {
         SceneManager.LoadScene("Setting");
     }
 
-    public void Tomainmenu(string name){
-        SceneManager.LoadScene("Main"); 
+    public void Tomainmenu(string name)
+    {
+        SceneManager.LoadScene("Main");
     }
 
-    public void Toturtorial(string name) {
-        SceneManager.LoadScene("Turtorial");  
+    public void Toturtorial(string name)
+    {
+        SceneManager.LoadScene("Turtorial");
     }
 
 
@@ -41,6 +46,6 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

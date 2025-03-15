@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-  
+
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -12,11 +12,12 @@ public class NewBehaviourScript : MonoBehaviour
     private GameObject selectedCharacter; // Nhân v?t ???c ch?n
     public CinemachineVirtualCamera Vcam;
 
-    
+    public CinemachineVirtualCamera Mcam;
+
 
     void Start()
     {
-       
+
         if (characterSelectionUI == null)
         {
             Debug.LogError("⚠️ Lỗi: Chưa gán Canvas vào characterSelectionUI!");
@@ -73,6 +74,17 @@ public class NewBehaviourScript : MonoBehaviour
                 {
                     Debug.LogError("⚠️ Virtual Camera chưa được gán trong Inspector!");
                 }
+
+                if (Mcam != null)
+                {
+                    Mcam.Follow = selectedCharacter.transform;
+                    Mcam.LookAt = selectedCharacter.transform;
+                    Debug.Log("📷 Virtual Camera đã follow: " + selectedCharacter.name);
+                }
+                else
+                {
+                    Debug.LogError("⚠️ Virtual Camera chưa được gán trong Inspector!");
+                }
             }
             else
             {
@@ -87,8 +99,8 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     // Gán nhân vật vào Virtual Camera để theo dõi
-   
+
 }
