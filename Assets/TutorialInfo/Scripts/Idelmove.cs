@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;  
 
 public class Idelmove : MonoBehaviour
 {
     public Animator animator;
     public float moveSpeed;      // Tốc độ di chuyển
-
+    public WaypointMovement[] waypointMovements;
+    public WaypointMovementside[] movementside;  
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer; // Để lật nhân vật khi xoay
 
@@ -59,4 +62,17 @@ public class Idelmove : MonoBehaviour
             timer.CharacterDeactivated();
         }
     }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("eto"))
+        {
+            SceneManager.LoadScene("gameover");  
+        }
+           
+        
+        
+            
+            
+     }
+
 }

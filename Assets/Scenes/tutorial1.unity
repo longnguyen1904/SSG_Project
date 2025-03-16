@@ -150,14 +150,14 @@ RectTransform:
   m_GameObject: {fileID: 207556209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.77244, y: 4.7265606, z: 2.994}
+  m_LocalScale: {x: 3.77244, y: 4.064842, z: 2.994}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 305454312}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: -42}
+  m_AnchoredPosition: {x: -10, y: -3}
   m_SizeDelta: {x: 188.9161, y: 73.766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &207556211
@@ -188,7 +188,10 @@ MonoBehaviour:
     l\u1EA1i v\u1EC9a h\xE8 b\u1EA1n s\u1EBD b\u1ECB tr\u1EEB ti\u1EC1n \r\n- \u0110\xE8n
     giao th\xF4ng tr\xEAn m\xE0n h\xECnh l\xE0 \u0111\xE8n c\u1EE7a c\xE1c ph\u01B0\u01A1ng
     ti\u1EC7n giao th\xF4ng . Ch\u1EC9 khi \u0111\xE8n \u0111\u1ECF b\u1EA1n m\u1EDBi
-    n\xEAn qua \u0111\u01B0\u1EDDng \u0111\u1EC3 tr\xE1nh nguy hi\u1EC3m . \r\n"
+    n\xEAn qua \u0111\u01B0\u1EDDng \u0111\u1EC3 tr\xE1nh nguy hi\u1EC3m . \r\n-
+    H\xE3y nh\u1EDB \u0111\u1EC3 quan s\xE1t khi \u0111i qua \u0111\u01B0\u1EDDng
+    . N\u1EBFu b\u1ECB xe \u0111\xE2m b\u1EA1n s\u1EBD ph\u1EA3i ch\u01A1i  l\u1EA1i
+    t\u1EEB \u0111\u1EA7u .  \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a99cc0fb06526e04babaf72eacf70e3a, type: 2}
   m_sharedMaterial: {fileID: -8292859627820755801, guid: a99cc0fb06526e04babaf72eacf70e3a, type: 2}
@@ -251,7 +254,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 19.503319, y: -0.101678856, z: 18.076347, w: 8.127777}
+  m_margin: {x: 19.503319, y: -0.101678856, z: 16.509789, w: 2.0696487}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -435,7 +438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 158}
+  m_AnchoredPosition: {x: 0, y: 162}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &367623639
@@ -1427,7 +1430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalClip: {fileID: 8300000, guid: 23f79d4bbbc2b334280945b88bfceb3d, type: 3}
-  newDuration: 42
+  newDuration: 47
 --- !u!1 &1281819457
 GameObject:
   m_ObjectHideFlags: 0
