@@ -522,6 +522,7 @@ GameObject:
   - component: {fileID: 908523810}
   - component: {fileID: 908523809}
   - component: {fileID: 908523808}
+  - component: {fileID: 908523811}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -591,7 +592,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 908523809}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 908523811}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Tomainmenu
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &908523809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,6 +643,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908523806}
   m_CullTransparentMesh: 1
+--- !u!114 &908523811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908523806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3bcc276dc30642a1c4d611134a495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &991585531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1392,7 @@ MonoBehaviour:
     s\u1ED1 ki\u1EBFn th\u1EE9c c\u01A1 b\u1EA3n v\u1EC1 an to\xE0n giao th\xF4ng
     \n - \u0110\xE2y l\xE0 d\u1EF1 \xE1n c\u1ED9ng \u0111\u1ED3ng h\u01B0\u1EDBng
     \u0111\u1EBFn l\u1EE9a tu\u1ED5i h\u1ECDc sinh ( \u0111\u1EB7c bi\u1EC7t l\xE0
-    tr\u1EBB em t\u1EEB 3 tu\u1ED5i tr\u1EDF l\xEAn )  . \n\n                            
+    tr\u1EBB em t\u1EEB 3 tu\u1ED5i tr\u1EDF l\xEAn )  . \n\n                                             
     Nh\xE0 ph\xE1t tri\u1EC3n : nh\xF3m SSG- \u0110\u1EA1i h\u1ECDc FPT "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a99cc0fb06526e04babaf72eacf70e3a, type: 2}
