@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Traffic_number_setting : MonoBehaviour
 {
     public TMP_Text redText, yellowText, greenText;
+    public Image redLightWalk, greenLightWalk;  
     public GameObject[] characters;
     public float redDuration = 5f, yellowDuration = 2f, greenDuration = 3f;
 
@@ -47,6 +49,8 @@ public class Traffic_number_setting : MonoBehaviour
         redText.gameObject.SetActive(lightText == redText);
         yellowText.gameObject.SetActive(lightText == yellowText);
         greenText.gameObject.SetActive(lightText == greenText);
+        greenLightWalk.gameObject.SetActive(lightText == redText);
+        redLightWalk.gameObject.SetActive(lightText == greenText);  
 
         isGreenLight = greenState; // Cập nhật trạng thái đèn xanh
         isRedLight = redState;     // Cập nhật trạng thái đèn đỏ
